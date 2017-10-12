@@ -1,0 +1,51 @@
+MS DOS
+
+[command] /?		lists switches/options
+
+BROWSING
+
+cd..			up
+dir
+	/d		3 column-ed directory
+	/p		pause after every screenfull
+	/s		show sub-directories and files
+tree			dir with pictures
+	/f		dir /s with pictures
+mkdir [name]		make directory
+rmdir [name]		del. directory
+del [name]		del. file
+
+============		============================
+
+[command] > [file.txt]	save results of command line to file.txt; overwrites previous data in file.txt
+[command] >> [file.txt]	adds results of command line to file.txt
+
+driverquery		lists drivers in system
+fsutil			list of system upkeeping commands
+ping
+pathping		shows route of packet
+ipconfig
+	/release	drop IP address
+	/renew		assigns new IP address
+	/flushdns	clears cache
+	/displaydns	shows cache
+netstat			lists system ports used
+	/a		lists both used and unused ports
+
+[ctrl+c]		stop
+tasklist		shows running system tasks
+	/svc		shows services under each task
+	/v		detailed explanation of each task
+systeminfo
+
+============		============================
+
+PROGRAMMING
+
+@[command]		carries out command without disturbing screen
+@echo off		used at beginning of program: does not display any commands
+echo			print function
+:[label]		label
+goto [label]		goes to label
+cls			clears screen
+

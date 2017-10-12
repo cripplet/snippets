@@ -1,0 +1,34 @@
+SIMPLE P2P PROTOCOL
+see http://tools.ietf.org/html/draft-strauss-p2p-chat-08 for motivation
+
+TERMS
+1.) NODE	user
+2.) CHANNEL	(INITPORT, private INITKEY), default (7893, "")
+3.) NODEID	(IP, string NAME)
+3.) HANDLE	(NODEID, public NODEKEY)
+4.) MESSAGE	oneof( (bool PERSISTENT, string) | ECHO )
+5.) ONION	oneof( (destination NODEID, encrypted ONION) | ( MESSAGE, echo ONION ) | NULL )
+
+INITIALIZATION
+1.) agree on INITPORT and INITKEY
+2.) NODE broadcasts HELLO on CHANNEL with HANDLE
+3.) NODE listen for HELLO on CHANNEL, adds HANDLE to NODELIST
+
+COMMUNICATION
+1.) NODE creates MESSAGE (an ONION instance) and an echo ONION (return path)
+2.) NODE selects encryption NODELIST
+3.) for each NODE in encryption NODELIST, encrypt ONION(s) with NODEKEY and wrap in ONION
+4.) NODE casts message ONION to destination NODE (from destination NODEID)
+5.) destination NODE receives ONION, decrypts encrypted ONION (decrypted ONION)
+6.) re-cast decrypted ONION to destination NODEID
+7.) if ONION is ( MESSAGE, ONION ), then re-cast ONION to destination NODEID on return path to source NODE
+7.) if TTL exceeded for return path ONION, source NODE selects new encryption NODELIST and re-casts new ONION
+
+ANONYMIZATION
+1.) long NODELISTS provide additional routing security
+2.) global CHANNEL specified at DEFAULT, must know at least one HANDLE on list
+3.) if MESSAGAE PERSISTENT option set to FALSE, delete MESSAGE on destination NODE after 10 seconds
+
+BANS
+1.) each NODE is responsible for local banned NODELIST
+2.) for each banned NODE in banned NODELIST, all packets from / to banned NODE must be dropped

@@ -1,0 +1,49 @@
+CRUDE MATRYOSHKA ROUTING (CMaR)
+
+TERMS
+1.) NODE	(IP, listening PORT, string HANDLE, public NODEKEY)
+2.) LIST	list of NODEs
+3.) CHANNEL	(HANDLE, password CHANNELKEY, local NODE LIST)
+4.) MESSAGE	(MESSAGEID, PARTID, bool LASTPACKET, PERSISTENCE, string CONTENT, string HASH)
+4a.) PACKET	string CONTENT
+5.) ONION	( (destination NODE, ONION) | (MESSAGE, confirmation ONION, corruption ONION) | NULL )
+// 6.) PACKET	( (ONION length, ONION) | SEEK | PEAK )
+
+INITIALIZATION
+1.) parties agree on CHANNEL
+2.) parties broadcast SEEK on CHANNEL with CHANNELKEY
+3.) parties listen for SEEK on CHANNEL with CHANNELKEY and adds to local LIST, sends copy of local LIST to SEEK sender
+4.) if SEEK more than n times, BAN SEEK
+5.) parties periodically cast PEAK PACKET to LIST
+6.) if party does not receive PEAK PACKET from particular NODE in LIST, drop NODE
+
+ONION CONSTRUCTION
+1.) party constructs MESSAGE
+2.) party initializes NODE list ENCRYPTORS with final destination NODE
+3.) party picks an additional n encryptors
+4.) for (i - 1)th NODE in ENCRYPTORS, encrypt ONION with NODEKEY and wrap into (ith NODE, ONION) ONION
+5.) result in (nth NODE, ONION) ONION instance
+
+CREATING DATA
+1.) party constructs CONTENT for PACKET
+2.) party splits CONTENT into n MESSAGES
+1.) party constructs CONTENT, and associated HASH
+2.) party constructs confirmation and corruption ONIONs with ((FALSE, ( TRUE | FALSE )), NULL) initialization and with final destination SELF
+3.) party constructs ONION DATA with ((PERSISTENT, CONTENT), ECHO) initialization
+
+DATA HANDLING
+1.) upon receiving DATA, party decrypts DATA
+2.) if decrypted DATA contains NODE, cast decrypted DATA ONION to DATA destination NODE
+3.) else if decrypted DATA is of form (MESSAGE, ONION), data has been received
+3a.) if  ONION is not NULL, cast decrypted DATA ONION
+3b.) else if ONION is NULL, check MESSAGE HASH (receiver has successfully confirmed contact)
+4.) if HASH confirmation time exceeds TTL, sender party re-creates DATA and re-casts
+
+ANONYMIZATION
+1.) long LIST provides routing security
+2.) global CHANNEL defaults to (7849, "")
+3.) if MESSAGE PERSISTENT is set, delete MESSAGE on destination party after X seconds
+
+BANNING
+1.) each party has banned LIST
+2.) all PACKETs from / to a banned NODE must be dropped by the relevant party

@@ -1,0 +1,43 @@
+NOTE "PID" IN TASK LIST 
+
+Active Connections
+
+  Proto  Local Address          Foreign Address        State           PID
+  TCP    Pavilion6635:1058      65.55.184.125:https    ESTABLISHED     904
+
+Image Name                   PID Session Name     Session#    Mem Usage
+========================= ====== ================ ======== ============
+System Idle Process            0 Console                 0         16 K
+System                         4 Console                 0         28 K
+smss.exe                     468 Console                 0         44 K
+csrss.exe                    524 Console                 0      3,236 K
+winlogon.exe                 548 Console                 0      1,256 K
+services.exe                 592 Console                 0      1,308 K
+lsass.exe                    604 Console                 0      1,852 K
+svchost.exe                  768 Console                 0        640 K
+svchost.exe                  832 Console                 0      1,260 K
+svchost.exe                  904 Console                 0     25,248 K
+svchost.exe                  976 Console                 0        740 K
+svchost.exe                 1092 Console                 0      1,704 K
+explorer.exe                1500 Console                 0     10,904 K
+ccSetMgr.exe                1536 Console                 0        472 K
+ccEvtMgr.exe                1624 Console                 0        780 K
+spoolsv.exe                 1752 Console                 0        940 K
+DefWatch.exe                1924 Console                 0         40 K
+mdm.exe                     2004 Console                 0        736 K
+Rtvscan.exe                  228 Console                 0      4,956 K
+alg.exe                     1336 Console                 0        236 K
+Directcd.exe                 244 Console                 0        628 K
+jusched.exe                  972 Console                 0         40 K
+ccApp.exe                    660 Console                 0      1,212 K
+VPTray.exe                  1112 Console                 0        612 K
+RubberDucky.exe              608 Console                 0      1,556 K
+AcroTray.exe                1480 Console                 0        208 K
+svchost.exe                 2060 Console                 0        508 K
+wmiprvse.exe                2504 Console                 0      3,308 K
+wuauclt.exe                 2628 Console                 0      3,456 K
+taskmgr.exe                 1572 Console                 0      4,704 K
+cmd.exe                     1960 Console                 0      2,820 K
+conime.exe                   860 Console                 0      2,964 K
+cmd.exe                     1120 Console                 0      1,708 K
+tasklist.exe                2820 Console                 0      4,472 K

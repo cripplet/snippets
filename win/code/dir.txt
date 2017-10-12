@@ -1,0 +1,27 @@
+ Volume in drive C has no label.
+ Volume Serial Number is 8028-5E99
+
+ Directory of C:\Documents and Settings\Jinsong\Desktop\commandprompt
+
+09/23/2007  04:48 PM    <DIR>          ..
+09/23/2007  05:13 PM    <DIR>          root
+09/23/2007  04:48 PM    <DIR>          .
+09/23/2007  05:30 PM                53 dir.bat
+09/23/2007  05:30 PM               237 tree.txt
+09/24/2007  10:28 PM                 0 dir.txt
+               3 File(s)            290 bytes
+
+ Directory of C:\Documents and Settings\Jinsong\Desktop\commandprompt\root
+
+09/23/2007  05:13 PM    <DIR>          ..
+09/23/2007  05:13 PM    <DIR>          .
+09/23/2007  05:12 PM               157 net.bat
+09/23/2007  05:34 PM             1,282 help.txt
+09/23/2007  04:15 PM             4,174 help list.txt
+09/23/2007  05:06 PM             3,366 net.txt
+09/23/2007  05:06 PM            11,398 driver query.txt
+               5 File(s)         20,377 bytes
+
+     Total Files Listed:
+               8 File(s)         20,667 bytes
+               5 Dir(s)  34,763,698,176 bytes free

@@ -1,0 +1,26 @@
+client recieves onion - decrypts
+client sees decrypted package with ID; adds ID to queue of active messages
+inits message(ID)
+recv:
+	inits _content[0][MAXBUFF]
+	loads packet into _content[0][MAXBUFF]
+	makes _order[0] the PARTID of the packet
+
+message: multiple types
+	_message_id -> id
+	load -> multiple packets
+	dump -> assemble multiple packets...?
+	send -> send multiple packets
+	recv -> assemble packets (create instance after first packet detected)
+	hash
+	check
+IM
+FILE
+HTTP
+etc.
+etc.
+etc.
+
+
+client has buffer -> dict { (messageid, partid) -> data }
+	once complete, buffer assemble message?

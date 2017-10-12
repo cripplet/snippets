@@ -1,0 +1,25 @@
+broadband connection:
+
+winxp
+
+talktalk.co.uk/help/broadband/xpdun.html
+
+setup new connection (network connection window)
+	connect to internet >> manual >> use...username and password
+		ISP name: name of connection
+		username, password - given, hopefully
+
+ubuntu 10.04
+
+system >> pref >> network
+	DSL >> add
+		DSL
+	username, password - given
+		WIRED
+	mac: same as eth0 (or wherever broadband connection port is)
+	mtu: auto
+		PPP
+	auth meth: all
+	allow BSD, Deflate, TCP
+		IPv4
+	auto (PPPoE)

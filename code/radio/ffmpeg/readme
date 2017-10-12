@@ -1,0 +1,11 @@
+http://stackoverflow.com/questions/11647868/using-ffmpeg-to-stream-continuously-videos-files-to-a-rtmp-server
+http://en.wikipedia.org/wiki/Named_pipe
+
+1.) fire up server
+	ffserver -d -f server.conf
+2.) open feed
+	ffmpeg -i pool http://127.0.0.1:8090/radio.ffm
+3.) open pipe
+	while true; do cat /var/www/music/dylkz.mp3 > pool; sleep 1; done
+4.) open client
+	ffplay http://127.0.0.1:8090/radio.mp3

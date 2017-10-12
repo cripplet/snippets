@@ -1,0 +1,14 @@
+Folder PATH listing
+Volume serial number is 00000074 8028:5E99
+C:.
+©¦  dir.bat
+©¦  dir.txt
+©¦  tree.txt
+©¦  
+©¸©¤root
+        driver query.txt
+        help list.txt
+        help.txt
+        net.bat
+        net.txt
+        
